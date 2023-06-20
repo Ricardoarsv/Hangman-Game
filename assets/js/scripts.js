@@ -106,13 +106,13 @@
       // Función para reiniciar la imagen del ahorcado
     function resetHangmanImage() {
       var hangmanImage = document.querySelector('.hangman-image');
-      hangmanImage.style.backgroundImage = "url('/assets/images/hangman.png')";
+      hangmanImage.style.backgroundImage = "url('/assets/images/hangman.webp')";
     }
     
     // Función para actualizar la imagen del ahorcado
     function updateHangmanImage() {
       var hangmanImage = document.querySelector('.hangman-image');
-      var imagePath = '/assets/images/hangman ' + errors + '.png';
+      var imagePath = '/assets/images/hangman ' + errors + '.webp';
       hangmanImage.style.backgroundImage = "url('" + imagePath + "')";
       
     // Agregar clase "shake" para aplicar la animación de temblor
