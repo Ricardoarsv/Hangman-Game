@@ -33,6 +33,7 @@ body{
         background-size: cover;
         background-repeat: no-repeat;
         zoom: 90%;
+        overflow: hidden;
     }
 
     .title{
@@ -73,13 +74,14 @@ body{
       background-image: url('../images/hangman.webp');
       background-size: contain;
       background-repeat: no-repeat;
-      margin-bottom: 20px;
       width: 80%;
       height: 260px;
       display: flex;
       justify-content: center;
-      align-items: center; 
+      align-items: center;
+      margin: 0 41%;
     }
+    
 
     .word-container {
       margin-bottom: 20px;
@@ -132,6 +134,7 @@ body{
       background-size: cover;
       background-attachment: fixed;
       zoom: 80%;
+      overflow: hidden;
   }
 
   .title {
@@ -159,6 +162,10 @@ body{
   .restart-button{
     font-size: 2em;
     width: 100%;
+  }
+
+  .hangman-image {
+    margin: 0 25%;
   }
 
 }
