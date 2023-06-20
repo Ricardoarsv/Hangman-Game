@@ -15,6 +15,10 @@
     hiddenWord = new Array(selectedWord.length).fill('_');
     guessedLetters = ["Letras Ingresadas:", ];
     errors = 0;
+    var MensajeStyle = document.getElementsByClassName('message')[0];
+    if (MensajeStyle.style.display === "block") {
+        MensajeStyle.style.display = "none";
+    }
 
     // Mostrar la palabra oculta
     updateWordContainer();
@@ -48,6 +52,7 @@
       // Verificar si se ha adivinado toda la palabra
       if (!hiddenWord.includes('_')) {
         // Mostrar mensaje de victoria y reiniciar el juego
+        ShowDiv()
         showMessage('¡Has ganado! La palabra era: ' + selectedWord);
       }
     } else {
@@ -60,8 +65,8 @@
       // Verificar si se ha alcanzado el máximo de errores permitidos
       if (errors >= maxErrors) {
         // Mostrar mensaje de derrota y reiniciar el juego
+        ShowDiv()
         showMessage('¡Has perdido! La palabra era: ' + selectedWord);
-        setTimeout(startGame, 2000);
       }
     }
     
@@ -82,6 +87,16 @@
     guessedLettersContainer.textContent = guessedLetters.join(' ');
   }
   
+  // Función para mostrar el div del mensaje
+  function ShowDiv(){
+    var MensajeStyle = document.getElementsByClassName('message')[0];
+        if (MensajeStyle.style.display === "none") {
+        MensajeStyle.style.display = "block";
+        } else {
+            MensajeStyle.style.display = "none";
+        }
+  }
+
   // Función para mostrar un mensaje
   function showMessage(message) {
     var messageContainer = document.querySelector('.message');
@@ -91,14 +106,22 @@
       // Función para reiniciar la imagen del ahorcado
     function resetHangmanImage() {
       var hangmanImage = document.querySelector('.hangman-image');
-      hangmanImage.style.backgroundImage = "url('hangman.png')";
+      hangmanImage.style.backgroundImage = "url('/assets/images/hangman.png')";
     }
     
     // Función para actualizar la imagen del ahorcado
     function updateHangmanImage() {
       var hangmanImage = document.querySelector('.hangman-image');
-      var imagePath = 'hangman_' + errors + '.png';
+      var imagePath = '/assets/images/hangman ' + errors + '.png';
       hangmanImage.style.backgroundImage = "url('" + imagePath + "')";
+      
+    // Agregar clase "shake" para aplicar la animación de temblor
+    hangmanImage.classList.add('shake');
+    
+    // Remover la clase "shake" después de un breve período de tiempo
+    setTimeout(function() {
+        hangmanImage.classList.remove('shake');
+    }, 120);
     }
     
     // Iniciar el juego al cargar la página

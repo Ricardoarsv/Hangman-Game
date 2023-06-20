@@ -3,10 +3,36 @@
   src: url('../fonts/DIMITRI_.TTF');
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 0) rotate(-5deg);
+  }
+  40% {
+    transform: translate(5px, 0) rotate(5deg);
+  }
+  60% {
+    transform: translate(-5px, 0) rotate(-5deg);
+  }
+  80% {
+    transform: translate(5px, 0) rotate(5deg);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
 body{
         background-image: url('../images/Hangmanbg.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+        zoom: 90%;
     }
 
     .title{
@@ -16,6 +42,23 @@ body{
       color: beige;
     }
 
+    #ResultArea{
+      background: rgba(255, 255, 255, 0.579);
+      display: flex;
+      align-items: center;
+      height: auto;
+      padding: 0.80em;
+      border-radius: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+}
+
     .restart-button{
       background: rgba(255, 255, 255, 0);
       border: none;
@@ -23,17 +66,21 @@ body{
       font-size: 3.5em;
       color: beige;
       text-align: center;
+      width: 100%;
     }
 
     .hangman-image {
-      width: 200px;
-      height: 200px;
-      background-image: url('hangman.png');
+      background-image: url('../images/hangman.png');
       background-size: contain;
       background-repeat: no-repeat;
       margin-bottom: 20px;
+      width: 80%;
+      height: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
     }
-    
+
     .word-container {
       margin-bottom: 20px;
       font-size: 2em;
@@ -67,7 +114,7 @@ body{
       text-align: center;
       font-size: 2.5em;
       margin-bottom: 20px;
-      color: wheat;
+      color: #000000;
     }
 
     .guessed-letters{
@@ -76,23 +123,42 @@ body{
       font-size: 2em;
     }
 
-    @media only screen and (max-width: 800px) {
-
-      body{
-        overflow: hidden;
-        background-size: cover;
-      }
-
-      .title {
-        font-size: 3em;
+    .TextSpan{
+      color: rgb(255, 179, 37);
     }
 
-    .guessed-letters{
-      font-size: 1em;
-    }
-
-    .message{
-      font-size: 1em;
-    }
-
+@media only screen and (max-width: 440px) {
+  body{
+      background-size: cover;
+      background-attachment: fixed;
+      zoom: 80%;
   }
+
+  .title {
+    font-size: 2em;
+  }
+  
+  #ResultArea{
+    font-size: 2em;
+  }
+
+  .guessed-letters{
+    font-size: 1em;
+  }
+
+  .keyboard-button{
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .message{
+    font-size: 1em;
+  }
+
+  .restart-button{
+    font-size: 2em;
+    width: 100%;
+  }
+
+}

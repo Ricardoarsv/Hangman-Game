@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="shortcut icon" href="/assets/images/HangmanIcon.png">
   <title>HangmanGame</title>
@@ -10,6 +12,7 @@
   
   <div class="hangman-image"></div>
   <div class="word-container"></div>
+  <div id="ResultArea" class="message" style="display: none;"></div>
   <div class="keyboard">
     <button class="keyboard-button" onclick="guessLetter('A')">A</button>
     <button class="keyboard-button" onclick="guessLetter('B')">B</button>
@@ -38,7 +41,6 @@
     <button class="keyboard-button" onclick="guessLetter('Y')">Y</button>
     <button class="keyboard-button" onclick="guessLetter('Z')">Z</button>
 </div>
-<div class="message"></div>
     <div><h2 class="guessed-letters">Letras ingresadas:</h2>
     <div class="guessed-letters"></div>
     <button class="restart-button" onclick="startGame()">Reiniciar juego</button>
