@@ -121,7 +121,7 @@
     // Remover la clase "shake" después de un breve período de tiempo
     setTimeout(function() {
         hangmanImage.classList.remove('shake');
-    }, 120);
+    }, 200);
     }
     
     // Iniciar el juego al cargar la página
