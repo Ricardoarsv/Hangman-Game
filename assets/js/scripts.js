@@ -148,4 +148,8 @@
     }
     
     // Iniciar el juego al cargar la página
-    window.onload = startGame;
+    // Agregar el evento DOMContentLoaded para precargar imágenes y iniciar el juego
+    document.addEventListener('DOMContentLoaded', function() {
+        preloadImages();
+        startGame();
+    });
