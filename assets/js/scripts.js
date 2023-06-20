@@ -1,12 +1,35 @@
-  // Palabras predefinidas
-  var words = ['GATO', 'PERRO', 'CASA', 'AUTO', 'SOL', 'ARBOL', 'LAPIZ', 'COCHE', 'COMPUTADORA'];
-  
-  // Variables globales
-  var selectedWord = '';
-  var hiddenWord = [];
-  var guessedLetters = [];
-  var errors = 0;
-  var maxErrors = 6;
+    // Palabras predefinidas
+    var words = ['GATO', 'PERRO', 'CASA', 'AUTO', 'SOL', 'ARBOL', 'LAPIZ', 'COCHE', 'COMPUTADORA'];
+
+    // Variables globales
+    var selectedWord = '';
+    var hiddenWord = [];
+    var guessedLetters = [];
+    var errors = 0;
+    var maxErrors = 6;
+
+    // Imágenes para precargar
+    var imagePaths = [
+    '/assets/images/hangman.webp',
+    '/assets/images/hangman 1.webp',
+    '/assets/images/hangman 2.webp',
+    '/assets/images/hangman 3.webp',
+    '/assets/images/hangman 4.webp',
+    '/assets/images/hangman 5.webp',
+    '/assets/images/hangman 6.webp'
+    ];
+
+    // Función para precargar imágenes
+    function preloadImages() {
+    for (var i = 0; i < imagePaths.length; i++) {
+        var img = new Image();
+        img.src = imagePaths[i];
+    }
+    }
+
+    // Llamar a la función de precarga de imágenes al cargar la página
+    window.onload = preloadImages;
+
   
   // Función para reiniciar el juego
   function startGame() {
@@ -121,7 +144,7 @@
     // Remover la clase "shake" después de un breve período de tiempo
     setTimeout(function() {
         hangmanImage.classList.remove('shake');
-    }, 200);
+    }, 120);
     }
     
     // Iniciar el juego al cargar la página
